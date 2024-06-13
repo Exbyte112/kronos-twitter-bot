@@ -37,4 +37,4 @@ def save_changes():
     return render_template("save.html", data=data)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=0000)
