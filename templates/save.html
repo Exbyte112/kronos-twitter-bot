@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot Account Saved</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #1A1A1D;
+            color: #E0E0E0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            color: #1DA1F2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bot Account Saved</h1>
+        <p>Username: {{ data['main_bot_username'] }}</p>
+        <p>Email: {{ data['main_bot_email'] }}</p>
+        <p>Password: {{ data['main_bot_password'] }}</p>
+        <a href="/" style="color: #1DA1F2; text-decoration: none;">Go Back</a>
+    </div>
+</body>
+</html>
