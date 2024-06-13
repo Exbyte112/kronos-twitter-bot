@@ -36,7 +36,5 @@ def save_changes():
     # return success message as JSON
     return render_template("save.html", data=data)
 
-# bind to port 0.0.0.0
-
 if __name__ == "__main__":
-    app.run(debug=True, port=8000)
+    app.run(debug=True, port=0000)
