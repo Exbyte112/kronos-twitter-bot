@@ -71,15 +71,8 @@ class TwikitBot:
         max_retries = 3
         for _ in range(max_retries):
             try:
-                if os.path.exists("cookies.json"):
-                    try:
-                        self.client.load_cookies("cookies.json")
-                    except Exception:
-                        self.client.login(auth_info_1=username, auth_info_2=email, password=password)
-                        self.client.save_cookies("cookies.json")
-                else:
-                    self.client.login(auth_info_1=username, auth_info_2=email, password=password)
-                    self.client.save_cookies("cookies.json")
+                self.client.login(auth_info_1=username, auth_info_2=email, password=password)
+                self.client.save_cookies("cookies.json")
                 return
             except Exception as e:
                 logging.warning(f"Error during login: {e}. Trying a different proxy.")
