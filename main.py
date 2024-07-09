@@ -132,8 +132,8 @@ class TwikitBot:
             print(f"No new tweets. Latest tweet: {latest_tweet.text}")
 
     def run(self):
-        print("Setting up MongoDB....")
-        self.setup_mongodb()
+        #print("Setting up MongoDB....")
+        #self.setup_mongodb()
         print("Setting up Twikit....")
         self.setup_twikit()
 
@@ -159,6 +159,9 @@ class TwikitBot:
 def main() -> NoReturn:
     print("Starting TwikitBot")
     bot = TwikitBot()
+    # set up mongodb
+    print("Setting up Database....")
+    bot.setup_mongodb()
     print("Bot initialized")
     while True:
         if bot.check_power_state():
