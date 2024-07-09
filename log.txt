@@ -1819,3 +1819,67 @@
 2024-07-08 18:37:25,771 - INFO - Getting latest tweet from 1446376469127704615
 2024-07-08 18:37:28,109 - INFO - HTTP Request: GET https://twitter.com/i/api/graphql/QWF3SzpHmykQHsQMixG0cg/UserTweets?variables=%7B%22userId%22%3A%20%221446376469127704615%22%2C%20%22count%22%3A%2040%2C%20%22includePromotedContent%22%3A%20true%2C%20%22withQuickPromoteEligibilityTweetFields%22%3A%20true%2C%20%22withVoice%22%3A%20true%2C%20%22withV2Timeline%22%3A%20true%7D&features=%7B%22creator_subscriptions_tweet_preview_api_enabled%22%3A%20true%2C%20%22c9s_tweet_anatomy_moderator_badge_enabled%22%3A%20true%2C%20%22tweetypie_unmention_optimization_enabled%22%3A%20true%2C%20%22responsive_web_edit_tweet_api_enabled%22%3A%20true%2C%20%22graphql_is_translatable_rweb_tweet_is_translatable_enabled%22%3A%20true%2C%20%22view_counts_everywhere_api_enabled%22%3A%20true%2C%20%22longform_notetweets_consumption_enabled%22%3A%20true%2C%20%22responsive_web_twitter_article_tweet_consumption_enabled%22%3A%20true%2C%20%22tweet_awards_web_tipping_enabled%22%3A%20false%2C%20%22longform_notetweets_rich_text_read_enabled%22%3A%20true%2C%20%22longform_notetweets_inline_media_enabled%22%3A%20true%2C%20%22rweb_video_timestamps_enabled%22%3A%20true%2C%20%22responsive_web_graphql_exclude_directive_enabled%22%3A%20true%2C%20%22verified_phone_label_enabled%22%3A%20false%2C%20%22freedom_of_speech_not_reach_fetch_enabled%22%3A%20true%2C%20%22standardized_nudges_misinfo%22%3A%20true%2C%20%22tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled%22%3A%20true%2C%20%22responsive_web_media_download_video_enabled%22%3A%20false%2C%20%22responsive_web_graphql_skip_user_profile_image_extensions_enabled%22%3A%20false%2C%20%22responsive_web_graphql_timeline_navigation_enabled%22%3A%20true%2C%20%22responsive_web_enhance_cards_enabled%22%3A%20false%7D "HTTP/1.1 200 OK"
 2024-07-08 18:37:28,130 - INFO - No new tweets. Latest tweet: Hello world 5
+2024-07-08 20:37:07,048 - ERROR - Error in main loop: The resolution lifetime expired after 20.214 seconds: Server Do53:192.168.0.1@53 answered The DNS operation timed out.; Server Do53:192.168.70.236@53 answered The DNS operation timed out.; Server Do53:192.168.83.223@53 answered The DNS operation timed out.; Server Do53:192.168.45.137@53 answered The DNS operation timed out.; Server Do53:192.168.151.74@53 answered The DNS operation timed out.; Server Do53:192.168.0.1@53 answered The DNS operation timed out.; Server Do53:192.168.70.236@53 answered The DNS operation timed out.; Server Do53:192.168.83.223@53 answered The DNS operation timed out.; Server Do53:192.168.45.137@53 answered The DNS operation timed out.; Server Do53:192.168.151.74@53 answered The DNS operation timed out.
+2024-07-08 20:38:43,738 - INFO - HTTP Request: POST https://api.twitter.com/1.1/guest/activate.json "HTTP/1.1 200 OK"
+2024-07-08 20:38:44,492 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json?flow_name=login "HTTP/1.1 200 OK"
+2024-07-08 20:38:49,513 - WARNING - Error during login: The read operation timed out. Trying a different proxy.
+2024-07-08 20:38:55,336 - INFO - HTTP Request: POST https://api.twitter.com/1.1/guest/activate.json "HTTP/1.1 200 OK"
+2024-07-08 20:38:57,420 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json?flow_name=login "HTTP/1.1 200 OK"
+2024-07-08 20:38:58,401 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 200 OK"
+2024-07-08 20:39:00,727 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 200 OK"
+2024-07-08 20:39:01,739 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 200 OK"
+2024-07-08 20:39:02,964 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 400 Bad Request"
+2024-07-08 20:39:02,966 - WARNING - Error during login: status: 400, message: "{"errors":[{"code":399,"message":"Wrong password!"}]}". Trying a different proxy.
+2024-07-08 20:39:07,996 - INFO - HTTP Request: POST https://api.twitter.com/1.1/guest/activate.json "HTTP/1.1 200 OK"
+2024-07-08 20:39:08,755 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json?flow_name=login "HTTP/1.1 200 OK"
+2024-07-08 20:39:09,544 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 200 OK"
+2024-07-08 20:39:10,232 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 200 OK"
+2024-07-08 20:39:15,252 - WARNING - Error during login: The read operation timed out. Trying a different proxy.
+2024-07-08 20:39:15,965 - ERROR - Failed to login after multiple attempts.
+2024-07-08 20:39:15,966 - ERROR - Error in main loop: Login failed
+2024-07-08 20:39:48,815 - INFO - HTTP Request: POST https://api.twitter.com/1.1/guest/activate.json "HTTP/1.1 200 OK"
+2024-07-08 20:39:49,712 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json?flow_name=login "HTTP/1.1 200 OK"
+2024-07-08 20:39:50,613 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 200 OK"
+2024-07-08 20:39:51,323 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 200 OK"
+2024-07-08 20:39:52,501 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 200 OK"
+2024-07-08 20:39:53,070 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 400 Bad Request"
+2024-07-08 20:39:53,073 - WARNING - Error during login: status: 400, message: "{"errors":[{"code":399,"message":"Wrong password!"}]}". Trying a different proxy.
+2024-07-08 20:39:58,710 - INFO - HTTP Request: POST https://api.twitter.com/1.1/guest/activate.json "HTTP/1.1 200 OK"
+2024-07-08 20:39:59,959 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json?flow_name=login "HTTP/1.1 200 OK"
+2024-07-08 20:40:02,209 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 200 OK"
+2024-07-08 20:40:03,361 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 200 OK"
+2024-07-08 20:40:03,962 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 200 OK"
+2024-07-08 20:40:05,236 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 400 Bad Request"
+2024-07-08 20:40:05,238 - WARNING - Error during login: status: 400, message: "{"errors":[{"code":399,"message":"Wrong password!"}]}". Trying a different proxy.
+2024-07-08 20:40:12,969 - INFO - HTTP Request: POST https://api.twitter.com/1.1/guest/activate.json "HTTP/1.1 200 OK"
+2024-07-08 20:40:13,577 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json?flow_name=login "HTTP/1.1 200 OK"
+2024-07-08 20:40:14,232 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 200 OK"
+2024-07-08 20:40:15,059 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 200 OK"
+2024-07-08 20:40:15,668 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 200 OK"
+2024-07-08 20:40:16,455 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 400 Bad Request"
+2024-07-08 20:40:16,458 - WARNING - Error during login: status: 400, message: "{"errors":[{"code":399,"message":"Wrong password!"}]}". Trying a different proxy.
+2024-07-08 20:40:17,265 - ERROR - Failed to login after multiple attempts.
+2024-07-08 20:40:17,266 - ERROR - Error in main loop: Login failed
+2024-07-08 20:41:37,475 - ERROR - Error in main loop: The resolution lifetime expired after 20.206 seconds: Server Do53:192.168.0.1@53 answered The DNS operation timed out.; Server Do53:192.168.70.236@53 answered The DNS operation timed out.; Server Do53:192.168.83.223@53 answered The DNS operation timed out.; Server Do53:192.168.45.137@53 answered The DNS operation timed out.; Server Do53:192.168.151.74@53 answered The DNS operation timed out.; Server Do53:192.168.0.1@53 answered The DNS operation timed out.; Server Do53:192.168.70.236@53 answered The DNS operation timed out.; Server Do53:192.168.83.223@53 answered The DNS operation timed out.; Server Do53:192.168.45.137@53 answered The DNS operation timed out.; Server Do53:192.168.151.74@53 answered The DNS operation timed out.
+2024-07-09 18:26:27,276 - WARNING - Error during login: 502 Bad Gateway. Trying a different proxy.
+2024-07-09 18:26:31,446 - WARNING - Error during login: 502 Bad Gateway. Trying a different proxy.
+2024-07-09 18:26:35,065 - WARNING - Error during login: 502 Bad Gateway. Trying a different proxy.
+2024-07-09 18:26:36,656 - ERROR - Failed to login after multiple attempts.
+2024-07-09 18:26:36,658 - ERROR - Error in main loop: Login failed
+2024-07-09 18:27:51,669 - WARNING - Error during login: 502 Bad Gateway. Trying a different proxy.
+2024-07-09 18:27:53,016 - WARNING - Error during login: 502 Bad Gateway. Trying a different proxy.
+2024-07-09 18:27:56,166 - WARNING - Error during login: 502 Bad Gateway. Trying a different proxy.
+2024-07-09 18:27:56,955 - ERROR - Failed to login after multiple attempts.
+2024-07-09 18:27:56,956 - ERROR - Error in main loop: Login failed
+2024-07-09 18:29:22,539 - ERROR - Error in main loop: The resolution lifetime expired after 20.210 seconds: Server Do53:192.168.0.1@53 answered The DNS operation timed out.; Server Do53:192.168.70.236@53 answered The DNS operation timed out.; Server Do53:192.168.83.223@53 answered The DNS operation timed out.; Server Do53:192.168.45.137@53 answered The DNS operation timed out.; Server Do53:192.168.151.74@53 answered The DNS operation timed out.; Server Do53:192.168.0.1@53 answered The DNS operation timed out.; Server Do53:192.168.70.236@53 answered The DNS operation timed out.; Server Do53:192.168.83.223@53 answered The DNS operation timed out.; Server Do53:192.168.45.137@53 answered The DNS operation timed out.; Server Do53:192.168.151.74@53 answered The DNS operation timed out.
+2024-07-09 18:30:38,720 - ERROR - Error in main loop: 502 Bad Gateway
+2024-07-09 18:32:52,972 - INFO - HTTP Request: POST https://api.twitter.com/1.1/guest/activate.json "HTTP/1.1 200 OK"
+2024-07-09 18:32:53,791 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json?flow_name=login "HTTP/1.1 200 OK"
+2024-07-09 18:32:54,200 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 200 OK"
+2024-07-09 18:32:55,373 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 200 OK"
+2024-07-09 18:32:55,770 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 400 Bad Request"
+2024-07-09 18:33:23,220 - INFO - HTTP Request: POST https://api.twitter.com/1.1/guest/activate.json "HTTP/1.1 200 OK"
+2024-07-09 18:33:24,014 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json?flow_name=login "HTTP/1.1 200 OK"
+2024-07-09 18:33:24,388 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 200 OK"
+2024-07-09 18:33:24,900 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 200 OK"
+2024-07-09 18:33:25,276 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 400 Bad Request"

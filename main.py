@@ -151,19 +151,24 @@ class TwikitBot:
                 logging.info("Bot is off, waiting for 1 minute.")
                 print("Bot is off, waiting for 1 minute.")
                 time.sleep(60)
+    
+    def check_power_state(self):
+        power_state = self.db["KronosTwikitPowerState"].find_one({"_id": 0})
+        return power_state["power_state"] == "on"
 
 def main() -> NoReturn:
     print("Starting TwikitBot")
     bot = TwikitBot()
     print("Bot initialized")
     while True:
-        try:
-            print("Running bot")
-            bot.run()
-        except Exception as e:
-            logging.error(f"Error in main loop: {e}")
-            print(f"Error in main loop: {e}")
-            time.sleep(60)
+        if bot.check_power_state():
+            try:
+                print("Running bot")
+                bot.run()
+            except Exception as e:
+                logging.error(f"Error in main loop: {e}")
+                print(f"Error in main loop: {e}")
+                time.sleep(60)
 
 if __name__ == "__main__":
     main()
