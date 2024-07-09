@@ -172,6 +172,10 @@ def main() -> NoReturn:
                 logging.error(f"Error in main loop: {e}")
                 print(f"Error in main loop: {e}")
                 time.sleep(60)
+        else:
+            logging.info("Bot is off, waiting for 1 minute.")
+            print("Bot is off, waiting for 1 minute.")
+            time.sleep(60)
 
 if __name__ == "__main__":
     main()
