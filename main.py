@@ -22,23 +22,36 @@ logging.basicConfig(
 MONGO_URI = os.getenv("MONGO_URI")
 CHECK_INTERVAL = 18  # 15 minutes / 50
 
+def load_proxies():
+    proxy_list = []
+    try:
+        with open("proxies.txt", "r") as file:
+            for line in file:
+                line = line.split("//")
+                line = line[1]
+                proxy_list.append(line.strip())
+    except FileNotFoundError:
+        print("Error: proxies.txt file not found.")
+    except IOError:
+        print("Error: Unable to read proxies.txt file.")
+    return proxy_list
+
 class TwikitBot:
     def __init__(self):
         self.client = None
         self.db = None
         self.old_tweet = ""
         self.first_run = True
-        self.proxies = [
-            "MrAndersonFlushed01:wxvyskd1q5rb:x282.fxdx.in:14361",
-            "MrAndersonFlushed02:sbkpmgmsb99s:x174.fxdx.in:16469",
-            "MrAndersonFlushed03:vzcy5g5xw572:x314.fxdx.in:14033",
-            "MrAndersonFlushed04:hzadxjwrm3p3:x314.fxdx.in:14034",
-            "MrAndersonFlushed05:pszf1mzrhhfy:x321.fxdx.in:14274"
-        ]
+        self.proxies = load_proxies()
 
     def get_random_proxy_string(self):
         proxy = random.choice(self.proxies)
-        username, password, host, port = proxy.split(':')
+        ans = proxy.split(':')
+        username = ans[0]
+        rest = ans[1]
+        password = rest.split('@')[0]
+        host = rest.split('@')[1]
+        port = ans[2]
         return f"http://{username}:{password}@{host}:{port}"
 
     def setup_mongodb(self):
