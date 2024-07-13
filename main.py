@@ -3,6 +3,7 @@ import time
 import random
 import logging
 from typing import NoReturn
+import requests
 
 import pymongo
 from twikit import Client, Tweet
@@ -21,6 +22,23 @@ logging.basicConfig(
 # Configuration
 MONGO_URI = os.getenv("MONGO_URI")
 CHECK_INTERVAL = 18  # 15 minutes / 50
+
+def fetch_proxies(url):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Raise an error for bad status codes
+        proxies = response.text.splitlines()  # Split the content into lines
+        return proxies
+    except requests.RequestException as e:
+        print(f"Error fetching the proxies: {e}")
+        return []
+
+
+def random_proxy():
+    proxies_list = fetch_proxies("https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/http.txt")
+    selected_prox = str(random.choice(proxies_list))
+    parsed = f"http://{selected_prox}"
+    return parsed
 
 def load_proxies():
     proxy_list = []
@@ -60,15 +78,15 @@ class TwikitBot:
 
     def setup_twikit(self):
         print("Attempting to set up Twikit")
-        proxy = self.get_random_proxy_string()
-        try:
-            print(f"Using proxy: {proxy}")
-            self.client = Client("en-US", proxy=proxy)
-            print("Twikit setup successful")
-        except Exception as e:
+        proxy = random_proxy()
+        #try:
+        print(f"Using proxy: {proxy}")
+        self.client = Client("en-US", "https://201.91.82.155:3128")
+        print("Twikit setup successful")
+        """except Exception as e:
             logging.error(f"Error setting up Twikit: {e}")
-            print(f"Error setting up Twikit: {e}")
-            raise Exception("Error setting up Twikit")
+            print(f"Error setting up Twikit: \n{Exception}")
+            raise Exception("Error setting up Twikit")"""
         credentials = self.db["KronosTwikit"].find_one({"_id": 0})
         print(f"Credentials: {credentials}")
         self.login(credentials)
@@ -84,14 +102,14 @@ class TwikitBot:
         max_retries = 3
         for _ in range(max_retries):
             try:
-                self.client.login(auth_info_1=username, auth_info_2=email, password=password)
+                self.client.login(auth_info_1="abuonx", auth_info_2="exbytevpn@gmail.com", password="97167059cc")
                 self.client.save_cookies("cookies.json")
                 return
             except Exception as e:
                 logging.warning(f"Error during login: {e}. Trying a different proxy.")
                 print(f"Error during login: {e}. Trying a different proxy.")
                 proxy = self.get_random_proxy_string()
-                self.client.proxy = proxy
+                self.client.proxy = "97167059cc"
         
         logging.error("Failed to login after multiple attempts.")
         print("Failed to login after multiple attempts.")
@@ -178,13 +196,13 @@ def main() -> NoReturn:
     print("Bot initialized")
     while True:
         if bot.check_power_state():
-            try:
-                print("Running bot")
-                bot.run()
-            except Exception as e:
-                logging.error(f"Error in main loop: {e}")
-                print(f"Error in main loop: {e}")
-                time.sleep(60)
+            #try:
+            print("Running bot")
+            bot.run()
+            #except Exception as e:
+            #    logging.error(f"Error in main loop: {e}")
+            #    print(f"Error in main loop: {e}")
+            #    time.sleep(60)
         else:
             logging.info("Bot is off, waiting for 1 minute.")
             print("Bot is off, waiting for 1 minute.")

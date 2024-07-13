@@ -1883,3 +1883,51 @@
 2024-07-09 18:33:24,388 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 200 OK"
 2024-07-09 18:33:24,900 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 200 OK"
 2024-07-09 18:33:25,276 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json "HTTP/1.1 400 Bad Request"
+2024-07-12 23:37:17,698 - WARNING - Error during login: 407 Proxy Authentication Required. Trying a different proxy.
+2024-07-12 23:37:22,250 - WARNING - Error during login: 407 Proxy Authentication Required. Trying a different proxy.
+2024-07-12 23:37:26,692 - WARNING - Error during login: 407 Proxy Authentication Required. Trying a different proxy.
+2024-07-12 23:37:27,858 - ERROR - Failed to login after multiple attempts.
+2024-07-12 23:37:27,860 - ERROR - Error in main loop: Login failed
+2024-07-12 23:38:36,364 - WARNING - Error during login: 407 Proxy Authentication Required. Trying a different proxy.
+2024-07-12 23:38:41,148 - WARNING - Error during login: 407 Proxy Authentication Required. Trying a different proxy.
+2024-07-12 23:38:45,792 - WARNING - Error during login: 407 Proxy Authentication Required. Trying a different proxy.
+2024-07-12 23:38:47,138 - ERROR - Failed to login after multiple attempts.
+2024-07-12 23:38:47,140 - ERROR - Error in main loop: Login failed
+2024-07-13 14:26:11,807 - WARNING - Error during login: 407 Proxy Authentication Required. Trying a different proxy.
+2024-07-13 14:26:17,345 - WARNING - Error during login: 407 Proxy Authentication Required. Trying a different proxy.
+2024-07-13 14:26:23,015 - WARNING - Error during login: 407 Proxy Authentication Required. Trying a different proxy.
+2024-07-13 14:26:24,351 - ERROR - Failed to login after multiple attempts.
+2024-07-13 14:26:24,352 - ERROR - Error in main loop: Login failed
+2024-07-13 14:57:47,971 - ERROR - Error setting up Twikit: 'function' object has no attribute 'url'
+2024-07-13 14:57:47,973 - ERROR - Error in main loop: Error setting up Twikit
+2024-07-13 14:58:32,188 - ERROR - Error in main loop: name 'requests' is not defined
+2024-07-13 14:59:32,865 - ERROR - Error setting up Twikit: Unknown scheme for proxy URL URL('78.47.103.89:8080')
+2024-07-13 14:59:32,867 - ERROR - Error in main loop: Error setting up Twikit
+2024-07-13 15:03:57,471 - ERROR - Error setting up Twikit: Proxy keys should use proper URL forms rather than plain scheme strings. Instead of "http", use "http://"
+2024-07-13 15:03:57,475 - ERROR - Error in main loop: Error setting up Twikit
+2024-07-13 15:08:54,180 - ERROR - Error setting up Twikit: 'dict' object has no attribute 'url'
+2024-07-13 15:08:54,183 - ERROR - Error in main loop: Error setting up Twikit
+2024-07-13 15:12:49,372 - ERROR - Error setting up Twikit: 'dict' object has no attribute 'url'
+2024-07-13 15:12:49,375 - ERROR - Error in main loop: Error setting up Twikit
+2024-07-13 15:14:06,756 - ERROR - Error setting up Twikit: 'dict' object has no attribute 'url'
+2024-07-13 15:14:06,762 - ERROR - Error in main loop: Error setting up Twikit
+2024-07-13 15:20:27,244 - WARNING - Error during login: timed out. Trying a different proxy.
+2024-07-13 15:20:34,809 - WARNING - Error during login: timed out. Trying a different proxy.
+2024-07-13 15:20:40,358 - WARNING - Error during login: 407 Proxy Authentication Required. Trying a different proxy.
+2024-07-13 15:20:41,955 - ERROR - Failed to login after multiple attempts.
+2024-07-13 15:23:18,838 - WARNING - Error during login: timed out. Trying a different proxy.
+2024-07-13 15:23:25,253 - WARNING - Error during login: 407 Proxy Authentication Required. Trying a different proxy.
+2024-07-13 15:23:32,223 - WARNING - Error during login: timed out. Trying a different proxy.
+2024-07-13 15:23:33,452 - ERROR - Failed to login after multiple attempts.
+2024-07-13 15:26:14,885 - WARNING - Error during login: _ssl.c:989: The handshake operation timed out. Trying a different proxy.
+2024-07-13 15:26:22,666 - WARNING - Error during login: timed out. Trying a different proxy.
+2024-07-13 15:26:28,177 - WARNING - Error during login: 407 Proxy Authentication Required. Trying a different proxy.
+2024-07-13 15:26:29,394 - ERROR - Failed to login after multiple attempts.
+2024-07-13 15:29:45,628 - WARNING - Error during login: timed out. Trying a different proxy.
+2024-07-13 15:29:51,917 - WARNING - Error during login: 407 Proxy Authentication Required. Trying a different proxy.
+2024-07-13 15:29:57,254 - WARNING - Error during login: 407 Proxy Authentication Required. Trying a different proxy.
+2024-07-13 15:29:58,412 - ERROR - Failed to login after multiple attempts.
+2024-07-13 15:31:51,935 - WARNING - Error during login: _ssl.c:989: The handshake operation timed out. Trying a different proxy.
+2024-07-13 15:31:58,250 - WARNING - Error during login: 407 Proxy Authentication Required. Trying a different proxy.
+2024-07-13 15:32:03,651 - WARNING - Error during login: 407 Proxy Authentication Required. Trying a different proxy.
+2024-07-13 15:32:04,788 - ERROR - Failed to login after multiple attempts.
