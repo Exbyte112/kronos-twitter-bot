@@ -109,7 +109,7 @@ class TwikitBot:
                 logging.warning(f"Error during login: {e}. Trying a different proxy.")
                 print(f"Error during login: {e}. Trying a different proxy.")
                 proxy = self.get_random_proxy_string()
-                self.client.proxy = "97167059cc"
+                self.client.proxy = "http://201.91.82.155:3128"
         
         logging.error("Failed to login after multiple attempts.")
         print("Failed to login after multiple attempts.")
