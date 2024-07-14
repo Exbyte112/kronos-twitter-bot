@@ -83,6 +83,7 @@ class TwikitBot:
         #print(f"Using proxy: {proxy}")
         self.client = Client("en-US", 'http://brd-customer-hl_6a207d4b-zone-residential_proxy2:fl93ov004ky1@brd.superproxy.io:22225')
         print("Twikit setup successful")
+        print("Proxy: http://brd-customer-hl_6a207d4b-zone-residential_proxy2:fl93ov004ky1@brd.superproxy.io:22225")
         """except Exception as e:
             logging.error(f"Error setting up Twikit: {e}")
             print(f"Error setting up Twikit: \n{Exception}")
