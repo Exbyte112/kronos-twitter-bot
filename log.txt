@@ -2128,3 +2128,7 @@
 2024-07-14 18:02:07,013 - INFO - HTTP Request: POST https://api.twitter.com/1.1/onboarding/task.json?flow_name=login "HTTP/1.1 200 OK"
 2024-07-14 18:02:12,026 - WARNING - Error during login: The read operation timed out. Trying a different proxy.
 2024-07-14 18:02:13,586 - ERROR - Failed to login after multiple attempts.
+2024-07-14 18:55:23,033 - WARNING - Error during login: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006). Trying a different proxy.
+2024-07-14 18:55:25,234 - WARNING - Error during login: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006). Trying a different proxy.
+2024-07-15 00:36:08,012 - WARNING - Error during login: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006). Trying a different proxy.
+2024-07-15 00:36:11,574 - WARNING - Error during login: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006). Trying a different proxy.
