@@ -2136,3 +2136,11 @@
 2024-07-15 01:06:37,112 - WARNING - Error during login: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006). Trying a different proxy.
 2024-07-15 01:06:39,690 - WARNING - Error during login: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006). Trying a different proxy.
 2024-07-15 01:06:41,052 - ERROR - Failed to login after multiple attempts.
+2024-07-15 01:27:28,551 - WARNING - Error during login: Client.login() got an unexpected keyword argument 'verify'. Trying a different proxy.
+2024-07-15 01:27:29,654 - WARNING - Error during login: Client.login() got an unexpected keyword argument 'verify'. Trying a different proxy.
+2024-07-15 01:27:30,724 - WARNING - Error during login: Client.login() got an unexpected keyword argument 'verify'. Trying a different proxy.
+2024-07-15 01:27:31,922 - ERROR - Failed to login after multiple attempts.
+2024-07-15 01:29:44,434 - WARNING - Error during login: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006). Trying a different proxy.
+2024-07-15 01:29:46,823 - WARNING - Error during login: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006). Trying a different proxy.
+2024-07-15 01:29:49,168 - WARNING - Error during login: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006). Trying a different proxy.
+2024-07-15 01:29:50,304 - ERROR - Failed to login after multiple attempts.

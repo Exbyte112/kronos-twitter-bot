@@ -8,11 +8,46 @@ import requests
 import pymongo
 from twikit import Client, Tweet
 from dotenv import load_dotenv
-import ssl
-ssl._create_default_https_context = ssl._create_unverified_context
+import urllib3
+import requests
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
+# Disable SSL warnings
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+
+# Patch the requests library to ignore SSL verification
+original_request = requests.request
+def patched_request(*args, **kwargs):
+    kwargs['verify'] = False
+    return original_request(*args, **kwargs)
+requests.request = patched_request
 # Load environment variables
 load_dotenv()
+
+
+import ssl
+
+def disable_ssl_verification():
+    old_merge_environment_settings = requests.Session.merge_environment_settings
+
+    def merge_environment_settings(self, url, proxies, stream, verify, cert):
+        settings = old_merge_environment_settings(self, url, proxies, stream, verify, cert)
+        settings['verify'] = False
+        return settings
+
+    requests.Session.merge_environment_settings = merge_environment_settings
+
+    try:
+        _create_unverified_https_context = ssl._create_unverified_context
+    except AttributeError:
+        pass
+    else:
+        ssl._create_default_https_context = _create_unverified_https_context
+
+# Call this function before setting up the twikit client
+disable_ssl_verification()
+
 
 # Set up logging
 logging.basicConfig(
@@ -80,16 +115,10 @@ class TwikitBot:
 
     def setup_twikit(self):
         print("Attempting to set up Twikit")
-        #proxy = random_proxy()
-        #try:
-        #print(f"Using proxy: {proxy}")
+        disable_ssl_verification()
         self.client = Client("en-US", 'http://brd-customer-hl_d38b4176-zone-residential_proxy1:swyj946btrg8@brd.superproxy.io:22225')
         print("Twikit setup successful")
         print("Proxy: http://brd-customer-hl_d38b4176-zone-residential_proxy1:swyj946btrg8@brd.superproxy.io:22225")
-        """except Exception as e:
-            logging.error(f"Error setting up Twikit: {e}")
-            print(f"Error setting up Twikit: \n{Exception}")
-            raise Exception("Error setting up Twikit")"""
         credentials = self.db["KronosTwikit"].find_one({"_id": 0})
         print(f"Credentials: {credentials}")
         self.login(credentials)
@@ -105,7 +134,7 @@ class TwikitBot:
         max_retries = 3
         for _ in range(max_retries):
             try:
-                self.client.login(auth_info_1="abuonx", auth_info_2="exbytevpn@gmail.com", password="97167059cc")
+                self.client.login(auth_info_1=username, auth_info_2=email, password=password)
                 self.client.save_cookies("cookies.json")
                 return
             except Exception as e:
