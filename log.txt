@@ -2132,3 +2132,7 @@
 2024-07-14 18:55:25,234 - WARNING - Error during login: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006). Trying a different proxy.
 2024-07-15 00:36:08,012 - WARNING - Error during login: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006). Trying a different proxy.
 2024-07-15 00:36:11,574 - WARNING - Error during login: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006). Trying a different proxy.
+2024-07-15 01:06:34,303 - WARNING - Error during login: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006). Trying a different proxy.
+2024-07-15 01:06:37,112 - WARNING - Error during login: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006). Trying a different proxy.
+2024-07-15 01:06:39,690 - WARNING - Error during login: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006). Trying a different proxy.
+2024-07-15 01:06:41,052 - ERROR - Failed to login after multiple attempts.

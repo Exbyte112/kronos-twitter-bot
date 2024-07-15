@@ -8,6 +8,8 @@ import requests
 import pymongo
 from twikit import Client, Tweet
 from dotenv import load_dotenv
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
 # Load environment variables
 load_dotenv()
