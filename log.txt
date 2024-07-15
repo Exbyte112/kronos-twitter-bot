@@ -2152,3 +2152,4 @@
 2024-07-16 00:07:05,592 - WARNING - Error during login: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006). Trying a different proxy.
 2024-07-16 00:07:09,324 - WARNING - Error during login: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006). Trying a different proxy.
 2024-07-16 00:07:10,415 - ERROR - Failed to login after multiple attempts.
+2024-07-16 00:27:34,754 - INFO - Bot is off, waiting for 1 minute.

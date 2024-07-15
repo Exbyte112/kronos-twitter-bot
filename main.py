@@ -80,10 +80,11 @@ class TwikitBot:
         print("Attempting to set up Twikit")
         #proxy = random_proxy()
         #try:
+        self.main_proxy = 'http://brd-customer-hl_d38b4176-zone-datacenter_proxy1:v29tsj0lras8@brd.superproxy.io:22225'
         #print(f"Using proxy: {proxy}")
-        self.client = Client("en-US", 'http://brd-customer-hl_d38b4176-zone-datacenter_proxy1:v29tsj0lras8@brd.superproxy.io:22225')
+        self.client = Client("en-US", self.main_proxy)
         print("Twikit setup successful")
-        print('Proxy: http://brd-customer-hl_d38b4176-zone-datacenter_proxy1:v29tsj0lras8@brd.superproxy.io:22225')
+        print(f'Proxy: {self.main_proxy}')
         """except Exception as e:
             logging.error(f"Error setting up Twikit: {e}")
             print(f"Error setting up Twikit: \n{Exception}")
@@ -110,7 +111,7 @@ class TwikitBot:
                 logging.warning(f"Error during login: {e}. Trying a different proxy.")
                 print(f"Error during login: {e}. Trying a different proxy.")
                 proxy = self.get_random_proxy_string()
-                self.client.proxy = 'http://brd-customer-hl_d38b4176-zone-datacenter_proxy1:v29tsj0lras8@brd.superproxy.io:22225'
+                self.client.proxy = self.main_proxy
         
         logging.error("Failed to login after multiple attempts.")
         print("Failed to login after multiple attempts.")
