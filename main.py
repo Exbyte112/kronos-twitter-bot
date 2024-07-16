@@ -104,7 +104,7 @@ class TwikitBot:
         max_retries = 3
         for _ in range(max_retries):
             try:
-                self.client.login(auth_info_1="abuonx", auth_info_2="exbytevpn@gmail.com", password="97167059cc")
+                self.client.login(auth_info_1=username, auth_info_2=email, password=password)
                 self.client.save_cookies("cookies.json")
                 return
             except Exception as e:
