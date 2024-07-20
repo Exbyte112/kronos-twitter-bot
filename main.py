@@ -8,6 +8,7 @@ import requests
 import pymongo
 from twikit import Client, Tweet
 from dotenv import load_dotenv
+from funcs import *
 
 # Set up logging
 logging.basicConfig(
@@ -28,7 +29,14 @@ load_dotenv()
 
 # Configuration
 MONGO_URI = os.getenv("MONGO_URI")
-CHECK_INTERVAL = 18  # 15 minutes / 50
+
+
+def interval(t=18):
+    # get a random figure between 18 and 60
+    inter = random.randint(t, 70)
+    print(f"Interval set to %s" % inter)
+    return inter
+
 
 def fetch_proxies(url):
     try:
@@ -40,25 +48,15 @@ def fetch_proxies(url):
         logging.error(f"Error fetching the proxies: {e}")
         return []
 
+
 def random_proxy():
-    proxies_list = fetch_proxies("https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/http.txt")
+    proxies_list = fetch_proxies(
+        "https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/http.txt"
+    )
     selected_prox = str(random.choice(proxies_list))
     parsed = f"http://{selected_prox}"
     return parsed
 
-def load_proxies():
-    proxy_list = []
-    try:
-        with open("proxies.txt", "r") as file:
-            for line in file:
-                line = line.split("//")
-                line = line[1]
-                proxy_list.append(line.strip())
-    except FileNotFoundError:
-        logging.error("Error: proxies.txt file not found.")
-    except IOError:
-        logging.error("Error: Unable to read proxies.txt file.")
-    return proxy_list
 
 class TwikitBot:
     def __init__(self):
@@ -68,7 +66,7 @@ class TwikitBot:
         self.first_run = True
         self.proxies = load_proxies()
 
-    def get_random_proxy_string(self):
+    """def get_random_proxy_string(self):
         proxy = random.choice(self.proxies)
         ans = proxy.split(':')
         username = ans[0]
@@ -76,7 +74,8 @@ class TwikitBot:
         password = rest.split('@')[0]
         host = rest.split('@')[1]
         port = ans[2]
-        return f"http://{username}:{password}@{host}:{port}"
+        return f"http://{username}:{password}@{host}:{port}
+        """
 
     def setup_mongodb(self):
         print("Setting up MongoDB connection...")
@@ -86,11 +85,11 @@ class TwikitBot:
 
     def setup_twikit(self):
         print("Attempting to set up Twikit")
-        self.main_proxy = 'http://brd-customer-hl_d38b4176-zone-datacenter_proxy1:v29tsj0lras8@brd.superproxy.io:22225'
+        self.main_proxy = get_random_proxy_string()
         try:
             self.client = Client("en-US", self.main_proxy)
             print("Twikit setup successful")
-            print(f'Proxy: {self.main_proxy}')
+            print(f"Proxy: {self.main_proxy}")
         except Exception as e:
             logging.error(f"Error setting up Twikit: {e}")
             raise Exception("Error setting up Twikit")
@@ -105,18 +104,20 @@ class TwikitBot:
         username = credentials["main_bot_username"]
 
         print(f"Logging in with username: {username}")
-        
+
         max_retries = 3
         for _ in range(max_retries):
             try:
-                self.client.login(auth_info_1=username, auth_info_2=email, password=password)
+                self.client.login(
+                    auth_info_1=username, auth_info_2=email, password=password
+                )
                 self.client.save_cookies("cookies.json")
                 return
             except Exception as e:
                 logging.warning(f"Error during login: {e}. Trying a different proxy.")
-                proxy = self.get_random_proxy_string()
+                proxy = get_random_proxy_string()
                 self.client.proxy = self.main_proxy
-        
+
         logging.error("Failed to login after multiple attempts.")
         raise Exception("Login failed")
 
@@ -129,13 +130,17 @@ class TwikitBot:
                 return tweets[0]
             except Exception as e:
                 if "403" in str(e):
-                    logging.error(f"403 Forbidden error for user {user_id}. The account might be suspended or have privacy restrictions.")
+                    logging.error(
+                        f"403 Forbidden error for user {user_id}. The account might be suspended or have privacy restrictions."
+                    )
                     return None  # or raise a custom exception
-                logging.warning(f"Error getting latest tweet: {e}. Trying a different proxy.")
-                proxy = self.get_random_proxy_string()
+                logging.warning(
+                    f"Error getting latest tweet: {e}. Trying a different proxy."
+                )
+                proxy = get_random_proxy_string()
                 self.client.proxy = proxy
                 time.sleep(60)  # Wait a bit before retrying
-        
+
         logging.error("Failed to get latest tweet after multiple attempts.")
         raise Exception("Failed to get latest tweet")
 
@@ -151,17 +156,19 @@ class TwikitBot:
         print(f"User ID: {user_id}")
         latest_tweet = self.get_latest_tweet(user_id)
         print(f"Latest tweet: {latest_tweet.text}")
-        
+
         if self.first_run:
             self.old_tweet = latest_tweet.text
             self.first_run = False
             print("First run, setting old tweet")
             logging.info("PROGRAM STARTED")
-        
+
         if latest_tweet.text != self.old_tweet:
             print("New tweet found, replying")
             self.old_tweet = latest_tweet.text
-            logging.info(f"New tweet from {latest_tweet.user.name}: {latest_tweet.text}")
+            logging.info(
+                f"New tweet from {latest_tweet.user.name}: {latest_tweet.text}"
+            )
             self.reply_to_tweet(latest_tweet)
         else:
             print(f"No new tweets. Latest tweet: {latest_tweet.text}")
@@ -175,18 +182,22 @@ class TwikitBot:
             power_state = self.db["KronosTwikitPowerState"].find_one({"_id": 0})
             if power_state["power_state"] == "on":
                 print("Bot is on, processing tweets....")
-                accounts = self.db["KronosTwikitWatch"].find_one({"_id": 0})["watch_accounts"]
+                accounts = self.db["KronosTwikitWatch"].find_one({"_id": 0})[
+                    "watch_accounts"
+                ]
                 for account in accounts:
                     print(f"Processing tweets from {account}")
                     self.process_tweet(account)
+                    CHECK_INTERVAL = interval()
                     time.sleep(CHECK_INTERVAL)
             else:
                 print("Bot is off, waiting for 1 minute.")
                 time.sleep(60)
-    
+
     def check_power_state(self):
         power_state = self.db["KronosTwikitPowerState"].find_one({"_id": 0})
         return power_state["power_state"] == "on"
+
 
 def main() -> NoReturn:
     print("Starting TwikitBot")
@@ -201,10 +212,13 @@ def main() -> NoReturn:
                 bot.run()
             except Exception as e:
                 logging.error(f"Error in main loop: {e}")
-                time.sleep(60)
+                sleep_interval = interval(60)
+                time.sleep(sleep_interval)
         else:
             print("Bot is off, waiting for 1 minute.")
-            time.sleep(60)
+            sleep_interval = interval(60)
+            time.sleep(sleep_interval)
+
 
 if __name__ == "__main__":
     main()
