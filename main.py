@@ -76,6 +76,23 @@ class TwikitBot:
         port = ans[2]
         return f"http://{username}:{password}@{host}:{port}
         """
+    
+    def send_error_to_db(self, error_message: str):
+        try:
+            # Assuming we're using a collection named 'KronosTwikitErrors'
+            error_collection = self.db["KronosTwikitErrors"]
+            
+            # Update the error field of the document with _id: 0
+            # If the document doesn't exist, it will be created
+            error_collection.update_one(
+                {"_id": 0},
+                {"$set": {"last_error": error_message}},
+                upsert=True
+            )
+            
+            print(f"Error message sent to DB: {error_message}")
+        except Exception as e:
+            logging.error(f"Failed to send error to database: {e}")
 
     def setup_mongodb(self):
         print("Setting up MongoDB connection...")
@@ -211,7 +228,9 @@ def main() -> NoReturn:
                 print("Running bot")
                 bot.run()
             except Exception as e:
-                logging.error(f"Error in main loop: {e}")
+                error_message = f"Error in main loop: {str(e)}"
+                logging.error(error_message)
+                bot.send_error_to_db(error_message)
                 sleep_interval = interval(60)
                 time.sleep(sleep_interval)
         else:
